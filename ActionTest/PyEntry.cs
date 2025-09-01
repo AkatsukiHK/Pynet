@@ -13,9 +13,6 @@ namespace ActionTest
                 "DLLs",
                 "Lib",
                 "Lib/site-packages",
-                // "Lib/site-packages/win32" ,
-                // "Lib/site-packages/win32/lib",
-                // "Lib/site-packages/Pythonwin"
             };
             string pySearchPath = $"{pythonHomePath};";
             foreach (string p in py_paths)
@@ -23,7 +20,6 @@ namespace ActionTest
                 pySearchPath += $"{pythonHomePath}/{p};";
             }
             pySearchPath += $"{Path.GetFullPath($"../../../../Scripts")};";
-            Console.WriteLine(pySearchPath);
             Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", dllPath);
             PythonEngine.PythonHome = pythonHomePath;           
             PythonEngine.PythonPath = pySearchPath;
